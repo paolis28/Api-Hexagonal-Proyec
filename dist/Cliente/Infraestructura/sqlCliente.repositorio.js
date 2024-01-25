@@ -28,5 +28,23 @@ class SqlClienteRepositorio {
             }
         });
     }
+    deleteCliente(id_cliente) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const clienteEliminado = yield cliente_modelo_1.default.findOne({ where: { id_cliente: id_cliente } });
+                if (clienteEliminado) {
+                    yield clienteEliminado.destroy();
+                    return new cliente_1.Cliente(clienteEliminado.id, clienteEliminado.nombre);
+                }
+                else {
+                    return null;
+                }
+            }
+            catch (error) {
+                console.log("Error en sqlAdmin.repositorio en DeleteAdmin", error);
+                return null;
+            }
+        });
+    }
 }
 exports.SqlClienteRepositorio = SqlClienteRepositorio;

@@ -12,4 +12,19 @@ export class SqlClienteRepositorio implements ClienteRepositorio{
             return null;
         }
     }
+
+    async deleteCliente(id_cliente: number): Promise<Cliente | null> {
+        try {
+            const clienteEliminado = await ClienteModel.findOne({where: {id_cliente:id_cliente}});
+            if(clienteEliminado){
+                await clienteEliminado.destroy();
+                return new Cliente(clienteEliminado.id,clienteEliminado.nombre);
+            }else{
+                return null;
+            }
+        } catch (error) {
+            console.log("Error en sqlAdmin.repositorio en DeleteAdmin", error);
+            return null;
+        }
+    }
 }

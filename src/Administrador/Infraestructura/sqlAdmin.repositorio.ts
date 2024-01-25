@@ -8,7 +8,22 @@ export class SqlAdminRepositorio implements AdminRepositorio{
             const adminCreado = await AdminModel.create({id_admin,nombre,password});
             return new Admin(adminCreado.id_admin, adminCreado.nombre, adminCreado.password)
         } catch (error) {
-            console.log("Error en sqlAdmin.repositorio", error);
+            console.log("Error en sqlAdmin.repositorio en AddAdmin", error);
+            return null;
+        }
+    }
+
+    async deleteAdmin(id_admin: number): Promise<Admin | null> {
+        try {
+            const adminEliminado = await AdminModel.findOne({where: {id_admin:id_admin}});
+            if(adminEliminado){
+                await adminEliminado.destroy();
+                return new Admin(adminEliminado.id,adminEliminado.nombre,adminEliminado.password);
+            }else{
+                return null;
+            }
+        } catch (error) {
+            console.log("Error en sqlAdmin.repositorio en DeleteAdmin", error);
             return null;
         }
     }

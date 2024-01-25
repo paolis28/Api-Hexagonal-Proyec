@@ -3,7 +3,15 @@ POST http://localhost:3000/admin/agregarAdmin HTTP/1.1
 Content-Type: application/json
 
 {
-    "id_admin":1,
-    "nombre":"Michel",
-    "password":"123"
+    "id_admin":3,
+    "nombre":"Miguel",
+    "password":"895"
+}
+
+###
+DELETE http://localhost:3000/admin/eliminarAdmin HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_admin":3
 }
