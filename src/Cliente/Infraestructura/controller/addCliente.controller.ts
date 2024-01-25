@@ -5,14 +5,17 @@ export class AddClienteController{
     constructor(readonly addClienteCasoUso:AddClienteCasoUso){}
     async run(req:Request, res:Response){
         try {
-            let{id,nombre} = req.body;
-            let clienteCreado = await this.addClienteCasoUso.run(id,nombre);
+            let nombre = req.body.nombre;
+            let id_cliente = req.body.id_cliente;
+            console.log(req.body);
+            
+            let clienteCreado = await this.addClienteCasoUso.run(id_cliente,nombre);
 
             if(clienteCreado){
                 return res.status(200).send({
                     status:"success",
                     data:{
-                        id: clienteCreado.id,
+                        id_cliente: clienteCreado.id_cliente,
                         nombre: clienteCreado.nombre
                     },
                     message:"Cliente creado exitosamente"
@@ -30,7 +33,6 @@ export class AddClienteController{
                 status:"error",
                 message:"Error en el servidor"
             })
-            
         }
     }
 }

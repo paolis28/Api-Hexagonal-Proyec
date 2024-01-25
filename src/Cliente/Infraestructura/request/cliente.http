@@ -1,0 +1,8 @@
+###
+POST http://localhost:3000/cliente/agregarCliente HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_cliente":2,
+    "nombre":"Miguel"
+}

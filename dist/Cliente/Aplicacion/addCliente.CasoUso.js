@@ -14,10 +14,10 @@ class AddClienteCasoUso {
     constructor(clienteRepositorio) {
         this.clienteRepositorio = clienteRepositorio;
     }
-    run(id, nombre) {
+    run(id_cliente, nombre) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const clienteCreado = yield this.clienteRepositorio.addCliente(id, nombre);
+                const clienteCreado = yield this.clienteRepositorio.addCliente(id_cliente, nombre);
                 return clienteCreado;
             }
             catch (error) {

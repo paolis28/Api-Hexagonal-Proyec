@@ -15,19 +15,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const database_1 = require("./database/database");
 const cliente_routes_1 = require("./Cliente/Infraestructura/cliente.routes");
+const admin_routes_1 = require("./Administrador/Infraestructura/admin.routes");
+const signale_1 = require("signale");
 const app = (0, express_1.default)();
+const signale = new signale_1.Signale();
 app.use(express_1.default.json());
 app.use('/cliente', cliente_routes_1.clienteRouter);
+app.use('/admin', admin_routes_1.adminRouter);
 function iniciarServidor() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             yield (0, database_1.correrBaseDatos)();
             app.listen(3000, () => {
-                console.log("Servidor corriendo en el puerto 3000");
+                signale.success("Servidor corriendo en el puerto 3000");
             });
         }
         catch (error) {
-            console.log("Error al iniciar el servidor", error);
+            signale.error("Error al iniciar el servidor", error);
         }
     });
 }

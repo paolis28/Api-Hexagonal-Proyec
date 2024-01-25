@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import dotenv from "dotenv";
 import ClienteModel from "../Cliente/Infraestructura/Model/cliente.modelo";
+import AdminModel from "../Administrador/Infraestructura/Model/adminModel";
 
 dotenv.config();
 
@@ -11,7 +12,7 @@ export const sequelize = new Sequelize({
     password: process.env.PASSWORD,
     host:process.env.HOST,
     port:3306,
-    models:[ClienteModel]
+    models:[ClienteModel,AdminModel]
 });
 
 export async function correrBaseDatos(){

@@ -16,11 +16,11 @@ exports.SqlClienteRepositorio = void 0;
 const cliente_1 = require("../Dominio/cliente");
 const cliente_modelo_1 = __importDefault(require("./Model/cliente.modelo"));
 class SqlClienteRepositorio {
-    addCliente(id, nombre) {
+    addCliente(id_cliente, nombre) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const clienteCreado = yield cliente_modelo_1.default.create({ id, nombre });
-                return new cliente_1.Cliente(clienteCreado.id, clienteCreado.nombre);
+                const clienteCreado = yield cliente_modelo_1.default.create({ id_cliente, nombre });
+                return new cliente_1.Cliente(clienteCreado.id_cliente, clienteCreado.nombre);
             }
             catch (error) {
                 console.log("Error en sqlCliente.repositorio", error);

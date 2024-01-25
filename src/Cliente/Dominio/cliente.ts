@@ -1,6 +1,6 @@
 export class Cliente{
     constructor(
-        readonly id:number,
+        readonly id_cliente:number,
         readonly nombre:string
     ){}
 }

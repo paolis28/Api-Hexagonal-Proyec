@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Cliente = void 0;
 class Cliente {
-    constructor(id, nombre) {
-        this.id = id;
+    constructor(id_cliente, nombre) {
+        this.id_cliente = id_cliente;
         this.nombre = nombre;
     }
 }

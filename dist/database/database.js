@@ -16,6 +16,7 @@ exports.correrBaseDatos = exports.sequelize = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const dotenv_1 = __importDefault(require("dotenv"));
 const cliente_modelo_1 = __importDefault(require("../Cliente/Infraestructura/Model/cliente.modelo"));
+const adminModel_1 = __importDefault(require("../Administrador/Infraestructura/Model/adminModel"));
 dotenv_1.default.config();
 exports.sequelize = new sequelize_typescript_1.Sequelize({
     dialect: "mysql",
@@ -24,7 +25,7 @@ exports.sequelize = new sequelize_typescript_1.Sequelize({
     password: process.env.PASSWORD,
     host: process.env.HOST,
     port: 3306,
-    models: [cliente_modelo_1.default]
+    models: [cliente_modelo_1.default, adminModel_1.default]
 });
 function correrBaseDatos() {
     return __awaiter(this, void 0, void 0, function* () {

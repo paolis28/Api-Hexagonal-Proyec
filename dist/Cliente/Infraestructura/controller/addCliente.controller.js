@@ -17,13 +17,15 @@ class AddClienteController {
     run(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let { id, nombre } = req.body;
-                let clienteCreado = yield this.addClienteCasoUso.run(id, nombre);
+                let nombre = req.body.nombre;
+                let id_cliente = req.body.id_cliente;
+                console.log(req.body);
+                let clienteCreado = yield this.addClienteCasoUso.run(id_cliente, nombre);
                 if (clienteCreado) {
                     return res.status(200).send({
                         status: "success",
                         data: {
-                            id: clienteCreado.id,
+                            id_cliente: clienteCreado.id_cliente,
                             nombre: clienteCreado.nombre
                         },
                         message: "Cliente creado exitosamente"
