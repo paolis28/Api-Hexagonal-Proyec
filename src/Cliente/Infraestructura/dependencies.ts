@@ -11,3 +11,7 @@ export const addClienteController = new AddClienteController(addClienteCasoUso);
 
 export const deleteClienteCasoUso = new DeleteClienteCasoUso(sqlClienteRepositorio);
 export const deleteClienteController = new DeleteClienteController(deleteClienteCasoUso);
+
+
+
+    

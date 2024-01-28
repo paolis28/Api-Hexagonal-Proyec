@@ -1,16 +1,16 @@
 ###
-POST http://localhost:3000/cliente/agregarCliente HTTP/1.1
+POST http://localhost:3000/clientes/agregarCliente HTTP/1.1
 Content-Type: application/json
 
 {
-    "id_cliente":3,
-    "nombre":"Luis"
+    "id_cliente":1,
+    "nombre":"Paolis"
 }
 
 ###
-DELETE http://localhost:3000/cliente/eliminarCliente HTTP/1.1
+DELETE http://localhost:3000/clientes/eliminarCliente HTTP/1.1
 Content-Type: application/json
 
 {
-    "id_cliente":3
+    "id_cliente":1
 }

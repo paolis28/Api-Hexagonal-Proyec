@@ -3,13 +3,20 @@ import {correrBaseDatos} from './database/database';
 import { clienteRouter } from './Cliente/Infraestructura/cliente.routes';
 import { adminRouter } from './Administrador/Infraestructura/admin.routes';
 import {Signale} from 'signale';
+import helmet from 'helmet';
 
 const app = express();
-const signale = new Signale();
 
+const options = {
+    secrets: ["([0-9]{4}-?)+"]
+};
+
+const signale = new Signale(options);
+
+app.use(helmet());
 app.use(express.json()); 
-app.use('/cliente',clienteRouter);
-app.use('/admin',adminRouter);
+app.use('/clientes',clienteRouter);
+app.use('/admins',adminRouter);
 
 async function iniciarServidor(){
     try {

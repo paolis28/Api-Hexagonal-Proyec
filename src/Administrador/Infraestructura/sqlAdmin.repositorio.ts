@@ -13,6 +13,21 @@ export class SqlAdminRepositorio implements AdminRepositorio{
         }
     }
 
+    async getIdAdmin(id_admin: number): Promise<Admin | null> {
+        try {
+            const getIdAdmin = await AdminModel.findOne({where: {id_admin:id_admin}});
+            if(getIdAdmin){
+                await getIdAdmin.get();
+                return new Admin(getIdAdmin.id,getIdAdmin.nombre,getIdAdmin.password)
+            }else{
+                return null;
+            }
+        } catch (error) {
+            console.log("Error en sqlAdmin.repositorio en GetIdAdmin", error);
+            return null;
+        }        
+    }
+
     async deleteAdmin(id_admin: number): Promise<Admin | null> {
         try {
             const adminEliminado = await AdminModel.findOne({where: {id_admin:id_admin}});
@@ -27,4 +42,5 @@ export class SqlAdminRepositorio implements AdminRepositorio{
             return null;
         }
     }
+
 }

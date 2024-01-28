@@ -20,8 +20,8 @@ const signale_1 = require("signale");
 const app = (0, express_1.default)();
 const signale = new signale_1.Signale();
 app.use(express_1.default.json());
-app.use('/cliente', cliente_routes_1.clienteRouter);
-app.use('/admin', admin_routes_1.adminRouter);
+app.use('/clientes', cliente_routes_1.clienteRouter);
+app.use('/admins', admin_routes_1.adminRouter);
 function iniciarServidor() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
