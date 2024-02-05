@@ -11,13 +11,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AddAdminCasoUso = void 0;
 class AddAdminCasoUso {
-    constructor(adminRepositorio) {
+    constructor(adminRepositorio, encryPassHelper) {
         this.adminRepositorio = adminRepositorio;
+        this.encryPassHelper = encryPassHelper;
     }
     run(id_admin, nombre, password) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const adminCreado = yield this.adminRepositorio.addAdmin(id_admin, nombre, password);
+                const Encrypass = yield this.encryPassHelper.encodePassword(password);
+                const adminCreado = yield this.adminRepositorio.addAdmin(id_admin, nombre, Encrypass);
                 return adminCreado;
             }
             catch (error) {
