@@ -1,4 +1,4 @@
-import {IEncriptServicies } from '../../Aplicacion/services/services';
+import {IEncriptServicies } from '../../Aplicacion/services/EncriptService';
 import bcrypt from 'bcrypt'
 
 export class EncriptServiHelpers implements IEncriptServicies  {

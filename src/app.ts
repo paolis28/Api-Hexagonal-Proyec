@@ -2,8 +2,10 @@ import express from 'express';
 import {correrBaseDatos} from './database/database';
 import { clienteRouter } from './Cliente/Infraestructura/cliente.routes';
 import { adminRouter } from './Administrador/Infraestructura/admin.routes';
+import {pedidoRouter} from './Pedido/Infraestructura/pedido.routes';
 import {Signale} from 'signale';
 import helmet from 'helmet';
+import cors from "cors";
 
 const app = express();
 
@@ -15,8 +17,16 @@ const signale = new Signale(options);
 
 app.use(helmet());
 app.use(express.json()); 
+app.use(cors())
 app.use('/clientes',clienteRouter);
 app.use('/admins',adminRouter);
+app.use('/pedidos',pedidoRouter);
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:5173"); // Establece el origen adecuado
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 async function iniciarServidor(){
     try {
@@ -30,3 +40,5 @@ async function iniciarServidor(){
 }
 
 iniciarServidor();
+
+//debería ser adaptable a la torelancia a fallos
