@@ -41,4 +41,4 @@ async function iniciarServidor(){
 
 iniciarServidor();
 
-//debería ser adaptable a la torelancia a fallos
+
