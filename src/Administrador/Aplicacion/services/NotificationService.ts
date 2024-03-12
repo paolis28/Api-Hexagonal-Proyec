@@ -4,5 +4,5 @@ export interface INotificationService{
     provideChannel : ampqblib.Channel | undefined;
 
     inicializar (): Promise<boolean>;
-    sendNotification(message:string):boolean;
+    sendNotification(message:number):boolean;
 }

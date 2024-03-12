@@ -18,14 +18,14 @@ export class NotificationHelpers implements INotificationService {
         }
     }
 
-    sendNotification(message: string): boolean {
+    sendNotification(message: number): boolean {
         if(this.provideChannel === undefined) {
             return false
         }
         const exchange = "ColaPao";
         //revisa que exista y que los datos existan
         this.provideChannel.assertExchange(exchange, 'direct', {durable:true});
-        this.provideChannel.publish(exchange, '123', Buffer.from(message));
+        this.provideChannel.publish(exchange, '123', Buffer.from(JSON.stringify(message)));
         console.log("Mensaje enviado al exchange");
         return true;
     }

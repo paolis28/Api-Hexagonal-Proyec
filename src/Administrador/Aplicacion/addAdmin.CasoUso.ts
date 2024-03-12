@@ -11,7 +11,7 @@ export class AddAdminCasoUso{
         try {
             const Encrypass = await this.encryPassHelper.encodePassword(password);
             const adminCreado = await this.adminRepositorio.addAdmin(id_admin,nombre,Encrypass);
-            this.notificationHelpers.sendNotification("Se ha registrado un nuevo usuario");
+            // this.notificationHelpers.sendNotification(id_admin);
             return adminCreado;
         } catch (error) {
             console.log("Error en addAdmin.Caso.Uso", error);

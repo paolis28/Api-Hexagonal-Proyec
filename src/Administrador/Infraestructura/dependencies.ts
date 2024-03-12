@@ -16,7 +16,7 @@ import { NotificationHelpers } from "./helpers/NotificationHelper";
 export const encriptServi = new EncriptServiHelpers();
 export const notificationHelpers = new NotificationHelpers();
 
-notificationHelpers.inicializar();
+// notificationHelpers.inicializar();
 
 export const sqlAdminRepositorio = new SqlAdminRepositorio();
 export const addAdminCasoUso = new AddAdminCasoUso(sqlAdminRepositorio,encriptServi,notificationHelpers);

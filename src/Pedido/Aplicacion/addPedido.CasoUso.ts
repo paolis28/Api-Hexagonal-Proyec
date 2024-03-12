@@ -11,7 +11,8 @@ export class AddPedidoCasoUso{
         try {
             const Encrynip = await this.encryPassHelper.encodeNip(nip);
             const PedidoCreado = await this.pedidoRepositorio.addPedido(id_pedido,nombre,direccion,Encrynip);
-            this.notificationHelpers.sendNotification("Se ha registrado un nuevo pedido");
+            if(PedidoCreado)
+            this.notificationHelpers.sendNotification(PedidoCreado);
             return PedidoCreado;
         } catch (error) {
             console.log("Error en addPedido.Caso.Uso", error);

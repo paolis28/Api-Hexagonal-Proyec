@@ -22,7 +22,7 @@ export class GetByIdAdminController{
                 })
             }else{
                 return res.status(400).send({
-                    status:"success",
+                    status:"error",
                     data:[],
                     message:"Error al buscar administrador por id en getIdAdmin.controller"
                 })
