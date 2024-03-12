@@ -17,7 +17,8 @@ const signale = new Signale(options);
 
 app.use(helmet());
 app.use(express.json()); 
-app.use(cors())
+app.use(cors());
+
 app.use('/clientes',clienteRouter);
 app.use('/admins',adminRouter);
 app.use('/pedidos',pedidoRouter);
