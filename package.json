@@ -36,6 +36,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^4.17.21",
-    "sonarqube-scanner": "^3.3.0"
+    "sonarqube-scanner": "^3.3.0",
+    "ts-node": "^10.9.2"
   }
 }

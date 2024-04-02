@@ -4,8 +4,11 @@ import {EncriptServiHelpers} from "../Infraestructura/helpers/EncryptHelper";
 import { NotificationHelpers } from "../Infraestructura/helpers/NotificationHelper";
 
 export class AddPedidoCasoUso{
-    constructor(readonly pedidoRepositorio:PedidoRepositorio, readonly encryPassHelper:EncriptServiHelpers, 
-    readonly notificationHelpers:NotificationHelpers){}
+    constructor(
+        readonly pedidoRepositorio:PedidoRepositorio, 
+        readonly encryPassHelper:EncriptServiHelpers, 
+        readonly notificationHelpers:NotificationHelpers
+    ){}
     
     async run(id_pedido:number,nombre:string,direccion:string,nip:string):Promise<Pedido | null>{
         try {

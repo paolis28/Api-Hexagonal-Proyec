@@ -11,12 +11,13 @@ export class NotificationHelpers implements INotificationService {
         try {
             const connection = await ampqlib.connect("amqp://paolis:paolis@54.165.239.162")
             this.provideChannel = await connection.createChannel()
-            console.log("Conexion exitosa");
+            console.log("Conexion exitosa"); 
             return true
         } catch (error) {
             console.log("Error en el archivo NotificationHelper",error)
             return false
         }
+        
     }
 
     sendNotification(PedidoCreado: Pedido): boolean {

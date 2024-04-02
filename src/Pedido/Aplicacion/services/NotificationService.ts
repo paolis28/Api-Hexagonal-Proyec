@@ -6,4 +6,4 @@ export interface INotificationService{
 
     inicializar (): Promise<boolean>;
     sendNotification(pedidoCreado:Pedido):boolean;
-}
+}   
